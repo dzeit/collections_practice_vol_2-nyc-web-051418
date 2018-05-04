@@ -25,7 +25,22 @@ def first_wa(array)
 end 
 
 def remove_non_strings(array)
-  binding.pry 
-  array.delete_if { |element|.is_a? !string }
+  array.delete_if { |element| element.class != String }
 end 
 
+#[{:name => "blake"}, {:name => "blake"}, {:name => "ashley"}]
+#[{:name => "blake", :count => 2}, {:name => "ashley", :count => 1}]
+
+def count_elements(array)
+  results = {}
+  array.each do | element |
+    
+    if results[element[:name]]
+      results[element[:name]][:count] += 1 
+    else 
+      binding.pry 
+      element[:name][:count] = 1
+    end
+  end
+   results   
+end 
